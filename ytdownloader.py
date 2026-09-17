@@ -53,8 +53,7 @@ try:
 		url = input("Url of video: ").strip()
 
 		if not url:
-			print(f"\033[91merror: url cannot be empty\033[0m")
-			sys.exit(1)
+			print(f"\033[91merror: URL input cannot be empty\033[0m")
 
 		print("\nstarting download...")
 
@@ -65,10 +64,13 @@ try:
 		except Exception as e:
 			print(f"\nerror: {e}")
 	else:
-		print(f"\033[91merror: choice cannot be empty\033[0m")
+		if not choice:
+			print(f"\033[91merror: choice cannot be empty\033[0m")
+		else:
+			print(f"\033[91merror: choice has to be y or n\033[0m")
 
 except Exception as e:
-	print("\ncrash:")
+	print("\n\033[91mcrash:\033[0m")
 	print(e)
 
 input("Press ENTER to close...")
